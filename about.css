@@ -1,0 +1,254 @@
+body {
+  font-family: Georgia, "Goudy Old Style", "Times New Roman", serif;
+  background-color: #fbf7f2;
+  color: #1f3d2b;
+  margin: 20px;
+  line-height: 1.7;
+}
+
+/* navigation bar */
+#navigation {
+  list-style-type: none;    
+  margin: 10px auto;
+  padding: 6px;
+  width: fit-content;       
+  background-color: #faf5ef;
+  border-radius: 999px;     
+  border: 1px solid #8a9b5a;
+  overflow: hidden;        
+}
+
+#navigation li {
+  float: left;
+}
+
+#nav-logo {
+  padding: 0 10px;
+}
+
+#nav-logo a {
+  display: block;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+}
+
+#nav-logo a:hover,
+#nav-logo a:active {
+  background: none;
+  color: inherit;          
+}
+
+#nav-logo img {
+  height: 34px;
+  width: 34px;
+  border-radius: 0;
+  display: block;
+}
+
+#navigation li:not(#nav-logo) > a {
+  display: block;
+  padding: 10px 20px;       
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 18px;    
+  background-color: transparent;
+}
+
+#navigation li:not(#nav-logo) > a:link,
+#navigation li:not(#nav-logo) > a:visited {
+  color: #1f3d2b;
+}
+
+#navigation li:not(#nav-logo) > a:hover {
+  background-color: #7E9DA2;
+  color: #fbf7f2;
+}
+
+#navigation li:not(#nav-logo) > a:active {
+  color: #fbf7f2;
+}
+
+#navigation li:not(#nav-logo) > a.active {
+  background-color: #dfe8dd;
+  color: #1f3d2b;
+}
+
+#navigation::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+
+/* headings */
+h2 {
+  font-size: 1.6rem;
+  color: #1f3d2b;
+  margin: 20px 0 10px 0;
+}
+
+h3 {
+  font-size: 1.25rem;
+  color: #7ea04d;
+  margin: 12px 0 6px 0;
+}
+
+/* main sections full width except Walk With Us */
+#echoterra-intro,
+#results-matter,
+#mission-vision,
+#team-members {
+  max-width: 100%;
+  width: calc(100% - 40px);
+  margin: 0 auto 24px auto;
+}
+
+/* intro text + image */
+#echoterra-intro {
+  background-color: #faf5ef;
+  border: 1px solid #7ea04d;
+  border-radius: 8px;
+  padding: 15px 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.intro-text {
+  flex: 1 1 260px;
+}
+
+.intro-image {
+  flex: 1 1 220px;
+  text-align: center;
+}
+
+.intro-image img {
+  max-width: 100%;
+  border-radius: 8px;
+  border: 3px solid #7E9DA2;
+}
+
+/* Results section */
+#results-matter {
+  background-color: #c7da9b;
+  border-radius: 8px;
+  border: 1px solid #8a9b5a;
+  padding: 15px 18px;
+}
+
+.results-intro {
+  margin-bottom: 12px;
+}
+
+.results-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.result {
+  flex: 1 1 200px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #7ea04d;
+  padding: 10px 12px;
+}
+
+/* Mission & Vision */
+#mission-vision {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.card {
+  flex: 1 1 260px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #8a9b5a;
+  padding: 12px 14px;
+}
+
+.mission-card {
+  background-color: #edf5e5;
+}
+
+.vision-card {
+  background-color: #eaf3f7;
+}
+
+/* Team members */
+#team-members { }
+
+.team-intro {
+  margin-bottom: 14px;
+}
+
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.team-member {
+  flex: 1 1 180px;
+  max-width: 220px;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #7ea04d;
+  padding: 10px 12px;
+}
+
+.team-member img {
+  width: 100%;
+  border-radius: 50%;
+  border: 3px solid #7E9DA2;
+  margin-bottom: 8px;
+}
+
+/* Walk With Us */
+#newsletter-signup {
+  max-width: 450px;
+  margin: 0 auto 24px auto;
+  background-color: #faf5ef;
+  border-radius: 8px;
+  border: 1px solid #8a9b5a;
+  padding: 18px 20px;             
+}
+
+#newsletter-signup form {
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 96%;                  
+  padding: 7px;
+  margin: 6px 0 12px 0;
+  border: 1px solid #1f3d2b;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+input[type="submit"],
+button {
+  background-color: #7E9DA2;
+  color: #f5f0e8;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+button:hover {
+  background-color: #7ea04d;
+  color: #1f3d2b;
+}
