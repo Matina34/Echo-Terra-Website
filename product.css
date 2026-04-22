@@ -1,0 +1,450 @@
+/* 
+ GLOBAL BASE STYLE
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, "Goudy Old Style", "Times New Roman", serif;
+    color: #1f3d2b;
+    line-height: 1.7;
+    background-color: #fbf7f2;
+}
+
+
+ /* Navigation bar: pill-shaped, centred on the page */
+#navigation {
+  list-style-type: none;              /* remove bullets */
+  margin: 16px auto;
+  padding: 8px 14px;
+  width: fit-content;                 /* bar is only as wide as items */
+  background-color: #faf5ef;
+  border-radius: 999px;               /* pill shape */
+  border: 1px solid #8a9b5a;
+  overflow: hidden;
+}
+
+/* place list items next to each other */
+#navigation li {
+  float: left;
+}
+
+/* logo item on the left */
+#nav-logo {
+  padding: 0 12px;
+}
+
+/* logo link, no button background */
+#nav-logo a {
+  display: block;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+}
+
+/* logo hover stays neutral */
+#nav-logo a:hover,
+#nav-logo a:active {
+  background: none;
+  color: inherit;
+}
+
+/* logo image size */
+#nav-logo img {
+  height: 34px;
+  width: 34px;
+  display: block;
+}
+
+/* text links (all items except logo) */
+#navigation li:not(#nav-logo) > a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-align: center;
+
+  font-weight: normal;
+  font-size: 1rem;
+  color: #1f3d2b;
+
+  border-radius: 18px;
+  background-color: transparent;
+  transition: 0.25s;
+}
+
+/* hover state */
+#navigation li:not(#nav-logo) > a:hover {
+  background-color: #7E9DA2;
+  color: #fbf7f2;
+}
+
+/* active page (set with class="active" in HTML) */
+#navigation li:not(#nav-logo) > a.active {
+  background-color: #dfe8dd;
+  color: #1f3d2b;
+}
+
+/* clearfix after floated items */
+#navigation::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+*/
+
+/* 
+ HEADER
+*/
+
+header {
+    margin: 20px 0 10px 0;
+    text-align: center;
+}
+
+/* toggle title styles kept minimal */
+header h1 {
+    font-size: 2.4rem;
+    background-color: #a9c2c6;
+    color: #f5f0e8;
+    padding: 12px 0;
+    text-align: center;
+    border-radius: 8px;
+}
+
+/*
+ SECTIONS – product / service grids
+*/
+
+.products {
+    max-width: 1200px;                 /* new: center grid and limit width */
+    margin: 0 auto 40px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+}
+
+/*
+ PRODUCT & SERVICE CARDS
+*/
+
+.card {
+    min-height: 460px;
+    background-color: #ffffff;
+    border: 1px solid #8a9b5a;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card h3 {
+    text-align: center;
+    color: #7ea04d;
+    padding-top: 10px;
+}
+
+.card p {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* 
+ BUTTONS
+*/
+
+button,
+input[type="submit"] {
+    background-color: #7ea04d;
+    color: #f5f0e8;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: 0.25s;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: #7E9DA2;
+    color: #1f3d2b;
+}
+
+.book-btn {
+    background-color: #7ea04d;
+    color: #f5f0e8;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    margin: 1rem auto 1.4rem auto;   /* new: center button inside card */
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;                  /* new: so margin:auto works */
+}
+
+.book-btn:hover {
+    background-color: #7E9DA2;
+    color: #1f3d2b;
+}
+
+/*
+ FORM INPUTS (generic, used in some pages – kept as is)
+*/
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+textarea {
+    width: 90%;
+    padding: 10px;
+    margin: 12px auto;
+    border-radius: 5px;
+    border: 1px solid #8a9b5a;
+    font-size: 1rem;
+    background-color: #ffffff;
+    color: #1f3d2b;
+    display: block;
+}
+
+input:focus {
+    border-color: #7ea04d;
+    outline: none;
+    box-shadow: 0 0 5px rgba(126, 157, 162, 0.5);
+}
+
+/*
+ TOGGLE SWITCH
+*/
+
+.toggle-wrapper {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;      /* new: centre vertically with the circle */
+    margin-bottom: 10px;
+}
+
+#toggle-label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1f3d2b;
+}
+
+.toggle {
+    width: 75px;
+    height: 36px;
+    background-color: #7ea04d;
+    border-radius: 40px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s;
+}
+
+.toggle.active {
+    background-color: #7E9DA2;
+}
+
+.toggle-circle {
+    width: 30px;
+    height: 30px;
+    background-color: #1f3d2b;
+    border-radius: 50%;
+    color: #f5f0e8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: 0.3s;
+}
+
+.toggle-circle::before {
+    content: "🌿";
+}
+
+.toggle.active .toggle-circle {
+    left: 42px;
+}
+
+.toggle.active .toggle-circle::before {
+    content: "🛒";
+}
+
+/*
+ MODALS – BACKDROP
+*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+}
+
+/* 
+ MODAL BOX 
+   new: slightly wider, centered, with colour accents that match cards
+*/
+
+.modal-content {
+    background: #ffffff;
+    margin: 6% auto;                    /* new: closer to top, more centered */
+    padding: 22px 28px;
+    border-radius: 12px;
+    width: 95%;
+    max-width: 500px;                   /* new: a bit wider than before */
+    box-shadow: 0 0 20px rgba(0,0,0,0.25);
+    animation: popup 0.25s ease-out;
+    border: 1px solid #8a9b5a;          /* new: thin border like cards */
+}
+
+/* new: heading styling inside modals */
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 14px;
+    text-align: center;
+    color: #1f3d2b;
+}
+
+/* CLOSE BUTTONS */
+
+.close, .pay-close {
+    float: right;
+    font-size: 26px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #444;
+}
+
+.close:hover, .pay-close:hover {
+    color: #000;
+}
+
+/* ANIMATION */
+
+@keyframes popup {
+    from { transform: translateY(-20px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}
+
+/* 
+ FORM ELEMENTS INSIDE MODALS
+   new: use full width and consistent spacing
+*/
+
+.modal-content form {
+    margin-top: 10px;
+}
+
+.modal-content label {
+    display: block;
+    margin: 8px 0 4px 0;     /* new: consistent label spacing */
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 9px 10px;
+    margin: 0 0 12px 0;
+    border-radius: 6px;
+    border: 1px solid #8a9b5a;
+    font-size: 0.95rem;
+    box-sizing: border-box;  /* new: padding does not break width */
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 12px;
+    background: #7ea04d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.modal-content button:hover {
+    background: #7E9DA2;
+    color: #1f3d2b;
+}
+
+/* APPLE PAY BUTTON */
+
+.apple-pay {
+    width: 100%;
+    background: black;
+    color: white;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    margin: 12px 0 18px 0;
+    font-weight: 600;
+    text-align: center;
+}
+
+.apple-pay:hover {
+    background: #222;
+}
+
+/* Card input rows */
+
+.card-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.card-row .column {
+    flex: 1;
+}
+
+.card-row input {
+    width: 100%;
+}
+
+/* 
+ OPTIONAL: small screens – stack modal fields nicely
+*/
+
+@media (max-width: 480px) {
+    .modal-content {
+        margin: 10% 10px;
+        padding: 18px 16px;
+    }
+
+    .card-row {
+        flex-direction: column;
+    }
+}
