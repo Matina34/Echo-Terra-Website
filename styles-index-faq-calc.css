@@ -1,0 +1,545 @@
+/* General page style: base background, font and text colour. */
+body {
+  background-color: #fbf7f2;
+  font-family: Georgia, "Goudy Old Style", "Times New Roman", serif;
+  color: #1f3d2b;
+  margin: 20px;
+  line-height: 1.7;
+}
+
+/* Navigation bar: we use one <ul> that we style as a horizontal menu. */
+#navigation {
+  list-style-type: none;                  /* We remove the default bullets of the list. */
+  margin: 10px auto;
+  padding: 6px;
+  width: fit-content;                     /* The bar is only as wide as its content. */
+  background-color: #faf5ef;
+  border-radius: 999px;                   /* Very large radius makes the bar rounded. */
+  border: 1px solid #8a9b5a;
+  overflow: hidden;                       /* Keeps children inside the rounded edges. */
+}
+
+/* Every list item is placed next to each other by using float. */
+#navigation li {
+  float: left;                            /* This moves each <li> to the left until there is no space left. */
+}
+
+/* We reserve one list item for the logo so it sits at the start of the bar. */
+#nav-logo {
+  padding: 0 10px;
+}
+
+/* The logo is a link but we do not want it to look like a button. */
+#nav-logo a {
+  display: block;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+}
+
+/* When the mouse goes over the logo, nothing visually changes. */
+#nav-logo a:hover,
+#nav-logo a:active {
+  background: none;
+  color: inherit;
+}
+
+/* Here we control only the image size inside the logo area. */
+#nav-logo img {
+  height: 34px;
+  width: 34px;
+  border-radius: 0;
+  display: block;                         /* This removes the small gap that images usually have under them. */
+}
+
+/* Links for all the other menu items are turned into small rounded “chips”. */
+#navigation li:not(#nav-logo) > a {
+  display: block;                         /* Each link behaves like a block so padding works in all directions. */
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;                  /* We remove the underline from links. */
+  font-size: 1rem;
+  border-radius: 18px;
+  background-color: transparent;
+}
+
+/* Here we define the text color for normal and visited links. */
+#navigation li:not(#nav-logo) > a:link,
+#navigation li:not(#nav-logo) > a:visited {
+  color: #1f3d2b;
+}
+
+/* When the cursor is above a link, we show feedback with a different background and text color. */
+#navigation li:not(#nav-logo) > a:hover {
+  background-color: #7E9DA2;
+  color: #fbf7f2;
+}
+
+/* While the link is clicked (active), the text stays bright so the user sees the click state. */
+#navigation li:not(#nav-logo) > a:active {
+  color: #fbf7f2;
+}
+
+/* The .active link is used to show which page the visitor is currently on. */
+#navigation li:not(#nav-logo) > a.active {
+  background-color: #dfe8dd;
+  color: #1f3d2b;
+}
+
+/* After using float on the <li> elements, we add a clearfix so the next content appears under the bar. */
+#navigation::after {
+  content: "";                            /* We insert an empty invisible element. */
+  display: block;
+  clear: both;                            /* This clears the floats from the list items. */
+}
+
+/* Main containers on index / FAQ / calculator pages. */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0 40px 0;
+}
+
+/* Page titles on these pages. */
+h1 {
+  text-align: center;
+  color: #1f3d2b;
+}
+
+h2 {
+  font-size: 1.6rem;
+  color: #1f3d2b;
+  margin: 20px 0 10px 0;
+}
+
+h3 {
+  font-size: 1.25rem;
+  color: #7ea04d;
+  margin: 12px 0 6px 0;
+}
+
+/* ===== FAQ controls and questions ===== */
+
+.faq-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Search bar at the top of FAQ. */
+#faq-search {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #8a9b5a;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+/* Buttons that filter or reset FAQ. */
+.faq-buttons button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #7E9DA2;
+  color: #f5f0e8;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.faq-buttons button:hover {
+  background-color: #7ea04d;
+}
+
+/* Each FAQ item uses <details> for open / close behaviour. */
+details {
+  border: 1px solid #8a9b5a;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+summary {
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #1f3d2b;
+}
+
+/* We hide the default triangle marker of <summary>. */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* We draw our own “+” sign and rotate it when the item is open. */
+summary::after {
+  content: "+";
+  font-size: 1.5em;
+  line-height: 0;
+  transition: transform 0.3s ease;
+  color: #7E9DA2;
+}
+
+details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+details[open] summary {
+  border-bottom: 1px solid #8a9b5a;
+}
+
+.faq-answer {
+  padding: 10px;
+  color: #1f3d2b;
+}
+
+/* ===== Index: hero, mission + Eco Scanner, products, reviews ===== */
+
+/* Big image section at top of index page. */
+.hero-section {
+  position: relative;
+  background-image: url("earth.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 150px 20px;
+}
+
+/* Dark overlay so text stays readable on the hero image. */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* We place the hero text above the overlay. */
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 3.5em;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.hero-content p {
+  font-size: 1.5em;
+  margin-bottom: 30px;
+}
+
+/* Call‑to‑action button on hero. */
+.cta-button {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #7E9DA2;
+  color: #f5f0e8;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #7ea04d;
+}
+
+/* Two-column layout styled like the Mission / Vision example. */
+.mission-eco-wrapper {
+  max-width: 1200px;        /* wide row, centred */
+  margin: 40px auto;
+  display: flex;
+  gap: 24px;
+}
+
+/* Left card – light green like your Mission example. */
+.mission-section {
+  flex: 1 1 0;
+  background-color: #e6f0dd;    /* soft green panel */
+  border: 1px solid #8a9b5a;
+  border-radius: 8px;
+  padding: 28px 32px;
+}
+
+/* Right card – light blue like your Vision example. */
+.problem-section {
+  flex: 1 1 0;
+  background-color: #e3f0f7;    /* soft blue panel */
+  border: 1px solid #8a9b5a;
+  border-radius: 8px;
+  padding: 28px 32px;
+}
+
+/* Headings inside these cards – slightly larger and bold. */
+.mission-section h2,
+.problem-section h2 {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+/* Product area stays one full-width block. */
+.products-showcase {
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+/* Product cards on the home page. */
+.product-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #faf5ef;
+  border: 1px solid #8a9b5a;
+}
+
+.product-card {
+  width: 30%;
+  min-width: 220px;
+  margin-bottom: 30px;
+  background-color: #ffffff;
+  border: 1px solid #8a9b5a;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.product-card img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+/* Small FAQ preview list on index. */
+.faq-preview {
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.faq-preview ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.faq-preview li {
+  margin-bottom: 10px;
+}
+
+.faq-preview a {
+  text-decoration: none;
+  color: #1f3d2b;
+  font-weight: bold;
+}
+
+/* Reviews section on index now has a soft blue shade. */
+.reviews-section {
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 8px;
+  background-color: #eaf3f7;   /* new light blue shade */
+  border: 1px solid #8a9b5a;
+}
+
+.review-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  background-color: #faf5ef;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #8a9b5a;
+}
+
+.review-card {
+  width: 30%;
+  min-width: 220px;
+  margin-bottom: 30px;
+  background-color: #ffffff;
+  border: 1px solid #8a9b5a;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+/* here we expect star images */
+.review-card img {
+  max-width: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.review-card p {
+  font-style: italic;
+  color: #555555;
+}
+
+.review-card h4 {
+  font-weight: bold;
+  color: #1f3d2b;
+  margin-top: 15px;
+}
+
+/* Calculator teaser block on index. */
+.calculator-cta {
+  background-color: #1f3d2b;
+  color: #f5f0e8;
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.calculator-cta h2 {
+  color: #f5f0e8;
+}
+
+/* ===== Calculator page layout ===== */
+
+#carbon-form {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #8a9b5a;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #8a9b5a;
+  border-radius: 4px;
+}
+
+/* We reuse the same colour scheme for the form button. */
+#carbon-form button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background-color: #7E9DA2;
+  color: #f5f0e8;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+#carbon-form button:hover {
+  background-color: #7ea04d;
+}
+
+/* Result box under the calculator. */
+#result {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #8a9b5a;
+}
+
+#result h2 {
+  text-align: center;
+  color: #1f3d2b;
+}
+
+.footprint {
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #7E9DA2;
+  margin: 10px 0;
+}
+
+#result h3 {
+  margin-top: 20px;
+  color: #1f3d2b;
+}
+
+#result ul {
+  list-style: none;
+  padding: 0;
+}
+
+#result li {
+  margin-bottom: 10px;
+}
+
+/* ===== Footer ===== */
+
+footer {
+  background-color: #1f3d2b;
+  color: #f5f0e8;
+  padding: 20px 20px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-nav,
+.footer-contact,
+.footer-social {
+  width: 30%;
+  min-width: 220px;
+}
+
+.footer-content h4 {
+  color: #7ea04d;
+}
+
+.footer-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-content a {
+  color: #f5f0e8;
+  text-decoration: none;
+}
+
+/* ===== UML PDF viewer block on index ===== */
+
+/* updated so two PDFs can sit next to each other */
+.UML {
+  width: 100%;
+  background: #f2f2f2;
+  border: 2px solid #1f3d2b;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+/* each iframe behaves like a flex item; two per row if there is space */
+.pdf-viewer {
+  flex: 1 1 48%;
+  min-height: 400px;
+  border: none;
+}
